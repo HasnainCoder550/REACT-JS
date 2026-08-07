@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar{
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(4, 200, 235);
+    color: white;
+}
+ul{
+    display: flex;
+    gap: 70px;
+}
+ul > li{
+    list-style-type: none;
+    font-size: 16px;
+}
+.hero{
+    height: 150vh;
+    width: 100%;
+    /* background-color: rgb(126, 115, 115); */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+}
+.box{
+    height: 350px;
+    width: 280px;
+    border: 2px dashed black;
+    border-radius: 10px;
+
+}
+.details{
+    padding: 10px;
+}
+.details > p{
+    font-size: 14px;
+    margin-top: 5px;
+}
+.logo{
+    padding: 3px;
+}
+img{
+    height: 150px;
+    width: 270px;
+    border-radius: 10px;
+}
+.malicious{
+    display: none;
+}
+.bg-red{
+    background-color: red;
+}
+.bg-green{
+    background-color: green;
+}
+.footer{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(102, 22, 177);
+    padding: 10px;
+}
+.first{
+    height: 90px;
+    width: 100%;
+    font-size: 17px;
+    color: white;
+    padding: 10px;
+}
+.fd{
+  margin-bottom: 10px;  
+}
+.ancher{
+    margin-top: 8px;
+    color: white;
+    text-decoration: none;
+}
+.ancher:hover{
+    text-decoration: underline;
+}
+.spand{
+    display: flex;
+    gap: 10px;
+}
