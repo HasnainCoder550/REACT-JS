@@ -48,9 +48,9 @@ const Card = () => {
   
   return (
     <>
-    <div className='h-[100vh] w-full flex flex-wrap justify-center mt-30'>
+    <div className='h-[100vh] w-full flex flex-wrap justify-center mt-30 '>
     {products.map((item , idx) => {
-        return <div key={idx} className='h-[370px] w-[290px] rounded-md  m-4 shadow shadow-2xl'>
+        return <div key={idx} className='h-[370px] w-[290px] rounded-xl  m-4 shadow shadow-2xl'>
         <div className='h-[190px] w-full '>
        <img src={item.image} alt="" className='h-full w-full'/>
         </div>
@@ -59,7 +59,7 @@ const Card = () => {
          
        <h2 className='text-2xl italic font-bold mb-1'>{item.name}</h2>
        <p className='mb-1'>Category : {item.category}</p>
-       <p className='mb-1' key={idx}>Instock : {item.inStock} </p>
+       <p className='mb-1' key={idx}>Instock : Yes </p>
        <p className='mb-2'>Price : {item.price}</p>
        <button className='btn border p-1 rounded border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white italic cursor-pointer'>See Details</button>
         </div>
