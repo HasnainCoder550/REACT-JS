@@ -29,7 +29,7 @@ let advices = ["Eating"  , "Coding" , "Sleeping" , "Repeat"]
       </ul>
     </div>
     <div className='h-[100px] w-full flex items-center justify-center '>
-      <h2 className='h1 text-3xl text-blue-400 font-semibold '>Advice : {advices[step - 1]}</h2>
+      <h2 className='h1 text-3xl text-slate-600 font-semibold '>Advice : {advices[step - 1]}</h2>
     </div>
     <div className='h-[70px] w-full flex items-center justify-evenly mt-20'>
       <button onClick={prevHandler} className={`h-[40px] w-[120px] bg-slate-100 text-slate-600 rounded-lg italic hover:bg-slate-300 cursor-pointer border border-slate-200`}>Previous</button>
