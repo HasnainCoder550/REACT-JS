@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({btn,handler}) => {
   return (
     <>
-      <Button>SignUp</Button>
+      <button onClick={handler} className=' cursor-pointer border p-1 w-[90px] rounded bg-black text-white italic'>{btn}</button>
     </>
   )
 }
