@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Input from '../components/Input'
 import Button from '../components/Button'
-import Sweety from '../components/AlertBox'
-import AlertBox from '../components/AlertBox'
+// import Sweety from '../components/AlertBox'
+// import AlertBox from '../components/AlertBox'
 import Swal from 'sweetalert2'
 const SignUp = () => {
 const [form,setForm] = useState({

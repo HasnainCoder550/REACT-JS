@@ -5,7 +5,7 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import AlertBox from './components/AlertBox';
+// import AlertBox from './components/AlertBox';
 
 const App = () => {
 let list = ["Home" , "Projects" , "About"]
