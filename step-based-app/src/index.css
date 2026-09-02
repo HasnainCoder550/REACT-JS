@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+@font-face {
+    font-family:mont ;
+    src: url(../Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+.h1{
+   
+    font-family:mont ;
+}
+li{
+    font-family: Montserrat;
+}
+body{
+    background-color: #fcfdfe;
+}

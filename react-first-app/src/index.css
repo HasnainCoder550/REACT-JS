@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+.navbar{
+height: 80px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+background-color: rgb(20, 181, 209);
+}
+ul{
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+ul > li{
+  list-style-type: none;
+
+}
+.hero{
+  height: 100vh;
+  background-color: yellow;
+  padding: 20px;
+}
+.box{
+  height: 330px;
+  width: 280px;
+  border: 1px solid red;
+  padding: 3px;
+}
+img{
+  height: 140px;
+  width: 270px;
+}
+.details{
+  padding: 7px;
+}
