@@ -6,6 +6,7 @@ import { collection, getFirestore } from "firebase/firestore";
 import { doc, addDoc } from "firebase/firestore"; 
 import app, { db } from '../firebase/config.js';
 import EditUserModal from '../components/EditUserModal.jsx';
+import { uploadImageToCloudinary } from '../cloudinary/cloudinary.js';
 const auth = getAuth(app)
 
 
@@ -14,6 +15,9 @@ const Signup = () => {
   const [email,setEmail] = useState("")
   const [age,setAge] = useState("")
   const [password,setPassword] = useState("")
+  const [profileImage , setProfileImage] = useState(null)
+ 
+console.log(profileImage);
 
 
   const signupHandler = async () => {
@@ -24,18 +28,23 @@ try {
   let {user} = await createUserWithEmailAndPassword(auth, email, password);
   console.log(user);
   
+
   if(user){
+    const imageUrl = await  uploadImageToCloudinary(profileImage);
+    console.log(imageUrl);
+    
     try {
       const docRef = await addDoc(collection(db, "users"), {
         email,
         password,
         age,
-        username
+        username,
+        profileImage : imageUrl
   
       });
       console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+    } catch (error) {
+      console.error("Error adding document: ", error);
     }
   }
 
@@ -86,6 +95,9 @@ try {
        </div>
        <div>
         <input value={age} onChange={(e) => setAge(e.target.value)} type="number" placeholder='Enter Your Age' className='border h-[40px] border-white text-white outline-none pl-2 rounded'/>
+       </div>
+       <div>
+        <input  onChange={(e) => setProfileImage(e.target.files[0])} type="file" placeholder='Enter Your Age' className='border h-[40px] border-white text-white outline-none pl-2 rounded'/>
        </div>
        <button  onClick={signupHandler} className='border w-[100%] border-white text-white rounded hover:bg-slate-200 hover:text-slate-700 cursor-pointer mt-4 h-[30px]'>Signup</button>
         

@@ -10,7 +10,7 @@ const Alert = ({isOpen , onClose}) => {
     if (!isOpen) return null;
   return (
     <div className='h-screen w-full bg-white/20 absolute flex items-center justify-center '>
-       <div className='h-[250px] w-[570px]  bg-white rounded-lg shadow-xl'>
+       <div className='h-[250px] w-[570px]  bg-slate-800/100 rounded-lg shadow-xl text-white'>
         <div className=''>
           <div className='flex p-3 justify-between items-center'>
             <h1 className='pl-3 italic text-xl italic' 

@@ -4,6 +4,7 @@ import { db } from '../firebase/config';
 
 const UserCard = ({data,setIsEditUser , setEditUserData }) => {
 
+console.log(data.profileImage);
 
 // console.log(setEditUserData);
 
@@ -53,7 +54,10 @@ const UserCard = ({data,setIsEditUser , setEditUserData }) => {
     // console.log(data);
     
   return (
-    <div className='border p-4 rounded-lg h-[150px] w-[350px] flex flex-col items-center justify-center '>
+    <div className='border p-4 rounded-lg h-[350px] w-[380px] flex flex-col items-center justify-center '>
+      <div>
+      <img src={data.profileImage} alt="aa" className='h-[100px] w-[100px] rounded-[50%]' />
+      </div>
       <h1 className='text-2xl font-bold mb-2'>UserName : {data.username}</h1>
       <p>Email : {data.email}</p>
       <p>Age : {data.age}</p>
