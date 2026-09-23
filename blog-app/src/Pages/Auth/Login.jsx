@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import GoogleIcon from '@mui/icons-material/Google';
 import { createUserWithEmailAndPassword , GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { auth } from '../../firebase/config';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SigninWithGoogle from '../../components/SigninWithGoogle';
 // import { GoogleAuthProvider } from "firebase/auth";
 
@@ -15,25 +15,27 @@ import SigninWithGoogle from '../../components/SigninWithGoogle';
 
 const Login = () => {
 
+  const navigate  = useNavigate()
 
 const [form,setForm] = useState({
   email: "",
   password : "",
 })
 
-const handleInputChange = (value,key) => {
+const handleInputChange = (key,value) => {
   console.log("Handler Chala",value,key)
   setForm((prev) => ({...prev , [key] : value}))
 }
 
 const LoginHandler = async() => {
 console.log(form);
-
 try {
  let response = await signInWithEmailAndPassword(auth, form.email, form.password)
  console.log(response);
  if(response.user){
   toast.success(` Login SuccessFully!`)
+  console.log(response.user)
+  navigate("/")
  }
  
 } catch (error) {
@@ -83,11 +85,11 @@ try {
             width:"400px"
 
         }}>
-       <h1 className='text-3xl font-bold text-center mb-3'>Login </h1>
+       <h1 className='text-3xl font-bold text-center mb-3'>Login</h1>
 
     <Box>
-      <Input handler={handleInputChange} label={"Enter Your Email"} type={"email"}value={form.email}/>
-      <Input handler={handleInputChange} label={"Enter Your Password"} type={"password"} value={form.password}/>
+      <Input handler={handleInputChange} label={"Enter Your Email"} type="email" value={form.email} id={"email"}/>
+      <Input handler={handleInputChange} label={"Enter Your Password"}  id="password" type={"password"} value={form.password} />
 
       <Box className="flex justify-center gap-4 mb-5 mt-4">
       {/* <Button  title={"SignUp With Google"} handler={signupWithGoogleHandler} icon={<GoogleIcon/>}/> */}

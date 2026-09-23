@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase/config';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-
+export let userId  = null;
 
 
 const ProtectedRoute = ({ children }) => {
@@ -21,7 +21,7 @@ const ProtectedRoute = ({ children }) => {
           // https://firebase.google.com/docs/reference/js/auth.user
           const uid = user.uid;
           console.log(user);
-
+          userId = user.uid
           setExistUser(user)
           
           // ...

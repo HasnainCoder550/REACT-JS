@@ -1,5 +1,5 @@
 {
-  "name": "blog-app",
+  "name": "redux-todo-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,17 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^9.4.0",
-    "@mui/material": "^9.4.0",
+    "@reduxjs/toolkit": "^2.12.0",
     "@tailwindcss/vite": "^4.3.3",
-    "axios": "^1.20.0",
-    "cloudinary": "^2.11.0",
-    "firebase": "^12.19.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.3",
+    "react-redux": "^9.3.0",
     "react-toastify": "^11.1.0",
     "tailwindcss": "^4.3.3"
   },

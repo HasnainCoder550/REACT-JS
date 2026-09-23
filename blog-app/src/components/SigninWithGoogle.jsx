@@ -5,11 +5,12 @@ import { toast } from 'react-toastify';
 import { createUserWithEmailAndPassword , GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { auth } from '../firebase/config';
 import { saveDataIntoDB } from '../Pages/Auth/Signup';
+import { useNavigate } from 'react-router-dom';
 // import GoogleIcon from '@mui/icons-material/Google';
 
 
 const SigninWithGoogle = ({title , status}) => {
-
+const nav = useNavigate()
    const signupWithGoogleHandler = async( )=>{
      
     try {
@@ -19,6 +20,7 @@ const SigninWithGoogle = ({title , status}) => {
      if(response.user){
        saveDataIntoDB("",response.user)
        toast.success(status)
+       nav("/")
       }
    
    } catch (error) {

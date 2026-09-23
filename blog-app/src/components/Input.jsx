@@ -1,7 +1,8 @@
 import { Box, TextField } from '@mui/material'
 import React from 'react'
 
-const Input = ({label , type , handler, value}) => {
+const Input = ({id,label , type , handler, value}) => {
+  // console.log(id)
   return (
     <Box
     component="form"
@@ -15,10 +16,10 @@ const Input = ({label , type , handler, value}) => {
         
     }} 
     label={label}
-    variant="outlined"
-    onChange={(e) => handler(e.target.value, type)}
+    onChange={(e) => handler(id,id === "file" ? e.target.files[0] : e.target.value)}
     type={type}
     value={value}
+    variant="outlined"
     />
     {/* <TextField id="filled-basic" label="Filled" variant="filled" /> */}
     {/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
