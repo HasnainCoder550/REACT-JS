@@ -43,7 +43,9 @@ if(isEditTodo !== null){
 return updateTodoHandler();
 }
 
-
+if(todos.length > 4){
+  return toast.error("Only Five Tasks at a Time!")
+}
 
 // add todo 
 dispatch(addTodo({
