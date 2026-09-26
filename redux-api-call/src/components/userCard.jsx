@@ -1,99 +1,73 @@
-import React from 'react';
 
-const UserCard = ({user}) => {
-  // Aapka diya hua data object
-  // const user = {
-  //   "_id": "69fdf81b04b2e96e4f011879",
-  //   "email": "codermhasan@gmail.com",
-  //   "userName": "hasan",
-  //   "age": 23,
-  //   "otp": "e76b",
-  //   "otpExpiry": "2026-05-08T15:00:01.740Z",
-  //   "isVerified": false
-  // };
+import React from "react";
 
-  // // Date format karne ke liye helper
-  // const expiryDate = new Date(user.otpExpiry).toLocaleDateString('en-US', {
-  //   year: 'numeric',
-  //   month: 'short',
-  //   day: 'numeric',
-  //   hour: '2-digit',
-  //   minute: '2-digit'
-  // });
-
+const UserCard = ({ user }) => {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 my-8">
-      {/* Upper Tech-styled Header */}
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-24 relative">
-        <div className="absolute -bottom-10 left-6">
-          <div className="w-20 h-20 bg-slate-800 rounded-2xl border-4 border-white flex items-center justify-center text-white text-3xl font-bold uppercase shadow-md">
-            {user?.userName.substring(0, 2)}
-          </div>
+    <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl mb-4">
+      
+      {/* Header */}
+      <div className="relative h-28 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <div className="absolute -bottom-10 left-1/2 flex h-20 w-20 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-white text-2xl font-bold uppercase text-indigo-600 shadow-md">
+          {user?.userName?.charAt(0)}
         </div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="pt-12 p-6">
-        {/* Header/Name Info */}
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-800 capitalize">@{user.userName}</h2>
-            <p className="text-sm text-slate-500">Age: <span className="font-semibold text-slate-700">{user?.age} years</span></p>
-          </div>
+      {/* User Info */}
+      <div className="px-6 pb-6 pt-14 text-center ">
+        <h2 className="text-2xl font-bold capitalize text-gray-800">
+          {user?.userName}
+        </h2>
+
+        <p className="mt-1 text-sm text-gray-500">
+          {user?.email}
+        </p>
+
+        {/* Details */}
+        <div className="mt-6 grid grid-cols-2 gap-3">
           
-          {/* Verification Status Badge */}
-          {user.isVerified ? (
-            <span className="px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full flex items-center gap-1">
-              ✓ Verified
-            </span>
-          ) : (
-            <span className="px-3 py-1 text-xs font-semibold text-amber-700 bg-amber-100 rounded-full flex items-center gap-1">
-              ⚠ Unverified
-            </span>
-          )}
-        </div>
-
-        {/* User Details Details */}
-        <div className="space-y-4 border-t border-slate-100 pt-4">
-          {/* Email */}
-          <div>
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Email Address</label>
-            <span className="text-sm text-slate-700 font-medium break-all">{user?.email}</span>
+          <div className="rounded-xl bg-gray-50 p-3">
+            <p className="text-xs font-medium text-gray-400">
+              Age
+            </p>
+            <p className="mt-1 text-lg font-semibold text-gray-800">
+              {user?.age}
+            </p>
           </div>
 
-          {/* User ID */}
-          <div>
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">User ID</label>
-            <code className="text-xs text-indigo-600 bg-indigo-50 px-2 py-1 rounded font-mono block overflow-x-auto mt-0.5">
-              {user?._id}
-            </code>
+          <div className="rounded-xl bg-gray-50 p-3">
+            <p className="text-xs font-medium text-gray-400">
+              Status
+            </p>
+
+            <span
+              className={`mt-1 inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+                user?.isVerified
+                  ? "bg-green-100 text-green-700"
+                  : "bg-yellow-100 text-yellow-700"
+              }`}
+            >
+              {user?.isVerified ? "Verified" : "Unverified"}
+            </span>
           </div>
-
-          {/* OTP Section (Kyunke user unverified hai) */}
-          {!user?.isVerified && (
-            <div className="bg-rose-50 border border-rose-100 rounded-xl p-3.5 mt-2">
-              <div className="flex justify-between items-center mb-1.5">
-                <span className="text-xs font-bold text-rose-700 uppercase tracking-wide">Pending OTP</span>
-                <span className="text-xs font-mono font-bold bg-white text-rose-600 px-2 py-0.5 rounded shadow-sm border border-rose-200">
-                  {user?.otp}
-                </span>
-              </div>
-              <p className="text-[11px] text-rose-500 leading-relaxed">
-              </p>
-            </div>
-          )}
         </div>
 
-        {/* Action Button */}
-        <div className="mt-6">
-          <button className={`w-full py-2.5 px-4 rounded-xl font-medium text-sm transition-all duration-200 shadow-sm ${
-            user?.isVerified 
-              ? 'bg-slate-800 hover:bg-slate-900 text-white' 
-              : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-100'
-          }`}>
-            {user?.isVerified ? 'Manage Profile' : 'Verify Account Now'}
-          </button>
+        {/* User ID */}
+        <div className="mt-4 rounded-xl bg-gray-50 p-3 text-left">
+          <p className="text-xs font-medium text-gray-400">
+            User ID
+          </p>
+
+          <p className="mt-1 truncate text-sm font-medium text-gray-700">
+            {user?._id}
+          </p>
         </div>
+
+        {/* Button */}
+        <button
+          className="mt-5 w-full rounded-xl bg-indigo-600 px-4 py-3 font-semibold text-white transition hover:bg-indigo-700 active:scale-[0.98]"
+        >
+          View Profile
+        </button>
       </div>
     </div>
   );

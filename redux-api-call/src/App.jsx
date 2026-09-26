@@ -1,44 +1,101 @@
-import React, { useEffect } from 'react'
-import UserCard from './components/userCard'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllUsersStart, getAllUsersSuccess } from './featues/users/users'
-import axios from 'axios'
+// import React, { useEffect } from 'react'
+// import UserCard from './components/userCard'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { getAllUsersStart, getAllUsersSuccess, getAllUsersThunk } from './featues/users/users'
+// import axios from 'axios'
 
 
 
+
+// const App = () => {
+// let {users,loading} = useSelector(state => state.user);
+// console.log(users);
+
+// const dispatch = useDispatch()
+
+
+// const getUserData = async () => {
+// dispatch(getAllUsersThunk())
+// }
+
+//   useEffect(() => {
+//     getUserData()
+//   },[])
+//   return (
+//     <div className='bg-[#2a2a2a] h-auto w-full text-white '>
+//       <h1 className='text-center text-4xl mono mb-10 pt-3 font-semibold'>All Users</h1>
+
+//       <div className='flex flex-wrap justify-around'>
+//       {users && users?.slice(0,100)?.map((u,idx) => <UserCard key={idx} user={u}/>)}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+import React, { memo, useCallback, useMemo, useState } from 'react'
 
 const App = () => {
-let users = useSelector(state => state.user.users);
-console.log(users[2]);
 
-const dispatch = useDispatch()
+  const [state, setState] = useState(true)
+  const [count, setCount] = useState(0);
+
+ let user = useMemo(() => {
+    return {
+    name : "hasan ashraf"
+  }
+  }, [])
 
 
-const getUserData = async () => {
-  dispatch(getAllUsersStart())
-try {
-  const response = await axios.get(`https://auth-be-five.vercel.app/api/user`);
-  console.log(response.data.data);
+  const foo = useCallback(() => {
+    console.log("log ker raha hon..");
+    
+  } , [])
+
+  console.log("app component chalaa -->");
   
-  dispatch(getAllUsersSuccess(response.data.data))
-} catch (error) {
-  console.log(error.message);
-  
-}
-}
-
-  useEffect(() => {
-    getUserData()
-  },[])
   return (
-    <div className='bg-[#2a2a2a] h-[300vh] w-full text-white '>
-      <h1>All Users</h1>
+    <>
+    <div>App</div>
 
-      <div className='flex flex-wrap justify-around'>
-      {users[2].slice(0,10).map((u,idx) => <UserCard key={idx} user={u}/>)}
-      </div>
-    </div>
+<button onClick={() => setState(!state)}>update state</button>
+<button onClick={() => setCount(count + 1)}>update count</button>
+
+<br />
+    <Home handler={foo} data={user} />
+    <About />
+    </>
   )
 }
 
 export default App
+
+
+
+
+const Home = memo(( ) => {
+
+  console.log("home component chalaa -->");
+
+  // for(let i = 0 ; i < 100000; i++){
+  //   console.log(i);
+    
+  // }
+  
+  return (
+    <>Home</>
+  )
+})
+
+
+const About =( ) => {
+
+  console.log("About component chalaa -->");
+  
+  return (
+    <>About</>
+  )
+}
